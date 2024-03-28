@@ -1,0 +1,28 @@
+# Godot-specific ignores
+.export/
+.import/
+*.import
+*.pck
+*.exe
+*.zip
+*.apk
+*.tpz
+
+# Godot Mono (C#) specific ignores
+.mono/
+*.csproj
+*.sln
+*.userprefs
+
+# VSCode specific ignores
+.vscode/
+*.code-workspace
+
+# General ignores
+*.tmp
+*.bak
+*.swp
+/tmp/
+*~
+.DS_Store
+Thumbs.db
