@@ -28,7 +28,7 @@ func get_direction_to_player():
 [sub_resource type="CircleShape2D" id="CircleShape2D_sd15t"]
 radius = 5.0
 
-[node name="BasicEnemy" type="CharacterBody2D"]
+[node name="BasicEnemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 0
 script = SubResource("GDScript_yyqkj")
 
