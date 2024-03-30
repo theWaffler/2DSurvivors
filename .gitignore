@@ -29,4 +29,9 @@
 Thumbs.db
 *.cfg
 *.md5
-*.godot
+
+# Godot editor files
+*.godot/editor/filesystem_update4
+*.godot/editor/basic_enemy.tscn-editstate-*
+*.godot/editor/main.tscn-editstate-*
+*.godot/editor/player.tscn-editstate-*
