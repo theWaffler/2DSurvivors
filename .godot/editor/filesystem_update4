@@ -1,6 +1,1 @@
-res://resources/tileSet.tres
-res://scenes/ability/sword_ability/sword_ability.tscn
 res://scenes/ability/sword_ability_controller/sword_ability_controller.gd
-res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn
-res://scenes/main/main.tscn
-res://scenes/player/player.tscn
