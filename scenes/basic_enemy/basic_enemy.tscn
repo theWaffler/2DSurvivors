@@ -1,36 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://kf1ncck7erwb"]
+[gd_scene load_steps=5 format=3 uid="uid://kf1ncck7erwb"]
 
+[ext_resource type="Script" path="res://scenes/basic_enemy/basic_enemy.gd" id="1_acatr"]
 [ext_resource type="Texture2D" uid="uid://4jekewqihc4e" path="res://scenes/basic_enemy/0124.png" id="1_r7dfo"]
 
-[sub_resource type="GDScript" id="GDScript_yyqkj"]
-script/source = "extends CharacterBody2D
-
-const MAX_SPEED = 75
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var direction = get_direction_to_player()
-	velocity = direction * MAX_SPEED
-	move_and_slide()
-
-func get_direction_to_player():
-	var player_nodes = get_tree().get_first_node_in_group(\"player\") as Node2D
-	if player_nodes != null:
-		return (player_nodes.global_position - global_position).normalized()
-	return Vector2.ZERO
-"
+[sub_resource type="CircleShape2D" id="CircleShape2D_3v47e"]
+radius = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sd15t"]
 radius = 5.0
 
 [node name="BasicEnemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 0
-script = SubResource("GDScript_yyqkj")
+script = ExtResource("1_acatr")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_3v47e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_r7dfo")
