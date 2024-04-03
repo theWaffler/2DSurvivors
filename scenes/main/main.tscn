@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://f8saa5tse4r5"]
+[gd_scene load_steps=9 format=3 uid="uid://f8saa5tse4r5"]
 
 [ext_resource type="PackedScene" uid="uid://brbjtu6depstm" path="res://scenes/manager/enemy_manager.tscn" id="1_4lplm"]
 [ext_resource type="PackedScene" uid="uid://h1tafgkvuh7y" path="res://scenes/ui/arena_time_ui.tscn" id="1_agqiw"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c4us7avwf8cix" path="res://scenes/game_object/player/player.tscn" id="1_shose"]
 [ext_resource type="PackedScene" uid="uid://5nsmnxyuw7tn" path="res://scenes/manager/arena_time_manager.tscn" id="2_fric2"]
 [ext_resource type="PackedScene" uid="uid://baxckp5ymvr3o" path="res://debug/fps_display/fps_display.tscn" id="4_sytcu"]
+[ext_resource type="PackedScene" uid="uid://blhiggfhkvg3c" path="res://scenes/game_object/experience_vial/experience_taco.tscn" id="8_1ho2a"]
 
 [node name="Main" type="Node"]
 
@@ -28,3 +29,15 @@ layer_0/tile_data = PackedInt32Array(196609, 0, 4, 196610, 0, 4, 196611, 0, 4, 1
 
 [node name="Player" parent="." instance=ExtResource("1_shose")]
 position = Vector2(243, 166)
+
+[node name="ExperienceTaco" parent="." instance=ExtResource("8_1ho2a")]
+position = Vector2(148, 174)
+
+[node name="ExperienceTaco2" parent="." instance=ExtResource("8_1ho2a")]
+position = Vector2(233, 88)
+
+[node name="ExperienceTaco3" parent="." instance=ExtResource("8_1ho2a")]
+position = Vector2(286, 245)
+
+[node name="ExperienceTaco4" parent="." instance=ExtResource("8_1ho2a")]
+position = Vector2(346, 161)
