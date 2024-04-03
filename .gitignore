@@ -7,7 +7,7 @@
 *.zip
 *.apk
 *.tpz
-/.godot
+.godot/
 
 # Godot Mono (C#) specific ignores
 .mono/
@@ -31,7 +31,7 @@ Thumbs.db
 *.md5
 
 # Godot editor files
-*.godot/editor/filesystem_update4
-*.godot/editor/basic_enemy.tscn-editstate-*
-*.godot/editor/main.tscn-editstate-*
-*.godot/editor/player.tscn-editstate-*
+.godot/editor/filesystem_update4
+.godot/editor/basic_enemy.tscn-editstate-*
+.godot/editor/main.tscn-editstate-*
+.godot/editor/player.tscn-editstate-*
