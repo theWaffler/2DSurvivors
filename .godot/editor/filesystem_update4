@@ -1,6 +1,0 @@
-res://scenes/manager/arena_time_manager.gd
-res://scenes/ui/arena_time_ui.gd
-res://scenes/main/main.tscn
-res://resources/tileSet.tres
-res://scenes/manager/arena_time_manager.tscn
-res://scenes/ui/arena_time_ui.tscn

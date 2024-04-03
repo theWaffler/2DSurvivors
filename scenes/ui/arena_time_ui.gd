@@ -8,4 +8,9 @@ func _process(delta):
 		return
 
 	var time_elpased = arena_time_manager.get_time_elapsed()
-	label.text = str(time_elpased)
+	label.text = format_seconds_to_string(time_elpased)
+
+func format_seconds_to_string(seconds: float):
+	var minutes = floor(seconds/60)
+	var remaining_seconds = seconds - (minutes * 60)
+	return str(minutes) + ":" + ("%02d" % floor(remaining_seconds))
