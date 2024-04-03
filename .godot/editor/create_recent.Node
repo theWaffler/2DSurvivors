@@ -1,6 +1,8 @@
+CanvasLayer
+Control
 Label
 MarginContainer
-CanvasLayer
+Node2D
 Timer
 Node
 CollisionShape2D

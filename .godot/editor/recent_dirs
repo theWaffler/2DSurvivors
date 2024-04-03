@@ -1,9 +1,8 @@
+res://debug/fps_display
 res://scenes/ui
 res://scenes/manager
-res://scenes/basic_enemy
 C:/Users/Jay/Documents/Godot/2DSurvivorsCourse/scenes/basic_enemy
 C:/Users/Jay/Documents/Godot/2DSurvivorsCourse/scenes/ability/sword_ability_controller
 res://scenes/ability/sword_ability_controller
-res://scenes/game_camera
 res://Resources
 res://scenes/main
