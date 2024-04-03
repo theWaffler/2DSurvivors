@@ -40,4 +40,4 @@ position = Vector2(233, 88)
 position = Vector2(286, 245)
 
 [node name="ExperienceTaco4" parent="." instance=ExtResource("8_1ho2a")]
-position = Vector2(346, 161)
+position = Vector2(328, 91)
