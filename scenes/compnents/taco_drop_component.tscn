@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://owmdx4o5l25d"]
+
+[ext_resource type="Script" path="res://scenes/compnents/taco_drop_component.gd" id="1_65jlk"]
+[ext_resource type="PackedScene" uid="uid://ppmfy36svxyw" path="res://scenes/game_object/experience_vial/experience_taco.tscn" id="2_xqufq"]
+
+[node name="TacoDropComponent" type="Node"]
+script = ExtResource("1_65jlk")
+taco_scene = ExtResource("2_xqufq")
