@@ -11,6 +11,9 @@ func _ready():
 
 func damage(damage_amount: float):
 	current_health = max(current_health - damage_amount, 0) # no negative health
+	Callable(check_death).call_deferred() # passing ref function
+
+func check_death():
 	if current_health == 0:
 		died.emit()
 		owner.queue_free() # releases parent class ownership
