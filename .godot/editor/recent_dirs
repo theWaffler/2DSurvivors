@@ -1,5 +1,5 @@
-res://scenes/game_object/experience_vial
 res://scenes/compnents
+res://scenes/game_object/experience_vial
 res://scenes/auto_load
 res://scenes/manager
 res://debug/fps_display
