@@ -1,9 +1,9 @@
+res://scenes/ui
 res://scenes/compnents
 res://scenes/game_object/experience_vial
 res://scenes/auto_load
 res://scenes/manager
 res://debug/fps_display
-res://scenes/ui
 C:/Users/Jay/Documents/Godot/2DSurvivorsCourse/scenes/basic_enemy
 C:/Users/Jay/Documents/Godot/2DSurvivorsCourse/scenes/ability/sword_ability_controller
 res://scenes/ability/sword_ability_controller
