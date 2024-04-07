@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdgwqwlmxsmv2"]
+[gd_scene load_steps=2 format=3 uid="uid://bf88cm8j2nk10"]
 
 [ext_resource type="Script" path="res://scenes/manager/experience_manager.gd" id="1_sb6wi"]
 
