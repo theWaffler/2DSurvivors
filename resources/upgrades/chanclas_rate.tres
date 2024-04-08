@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://celxttc4slh2l"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_7x2j5"]
+
+[resource]
+script = ExtResource("1_7x2j5")
+id = "chanclas_rate"
+name = "Chanclas Swiftness"
+description = "Increases attack rate by 10%"

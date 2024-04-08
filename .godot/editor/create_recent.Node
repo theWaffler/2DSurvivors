@@ -1,7 +1,7 @@
+Node
 ProgressBar
 MarginContainer
 CanvasLayer
-Node
 Node2D
 CollisionShape2D
 Area2D
@@ -12,4 +12,3 @@ Timer
 AnimationPlayer
 CharacterBody2D
 Camera2D
-TileMap
