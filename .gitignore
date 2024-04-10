@@ -18,6 +18,7 @@
 # VSCode specific ignores
 .vscode/
 *.code-workspace
+.vscode/settings.json
 
 # General ignores
 *.tmp
