@@ -2,12 +2,18 @@ extends CanvasLayer
 
 #@onready var restart_button = $%MarginContainer/PanelContainer/MarginContainer/VBoxContainer/RestartButton
 #@onready var quit_button = $%MarginContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton
+@onready var title_label = $%TitleLabel
+@onready var description_label = $%DescriptionLabel
 
 func _ready():
 	get_tree().paused = true
 	$%RestartButton.pressed.connect(on_restart_button_pressed)
 	$%QuitButton.pressed.connect(on_quit_button_pressed)
 
+
+func set_defeat():
+	title_label.text = "Defeat"
+	description_label.text = "You Died, bitch!"
 
 func on_restart_button_pressed():
 	get_tree().paused = false
