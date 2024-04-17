@@ -8,3 +8,4 @@ func emit_experience_taco_collected(number: float):
 
 func emit_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	ability_upgrade_added.emit(upgrade, current_upgrades)
+
