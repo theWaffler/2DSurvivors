@@ -43,12 +43,26 @@ func on_timer_timeout():
 	var enemy_direction = enemies[0].global_position - sword_instance.global_position
 	sword_instance.rotation = enemy_direction.angle()
 
+#func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
+#	if upgrade.id != "chanclas_rate":
+#		return #ignore all upgrades that isn't sword related
+#
+#	var percent_reduction = min(current_upgrades["chanclas_rate"]["quantity"] * .50,1.0)
+#	$Timer.wait_time = base_wait_time * (1 - percent_reduction)
+#	$Timer.start()
+#
+#	print($Timer.wait_time)
+
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	if upgrade.id != "chanclas_rate":
-		return #ignore all upgrades that isn't sword related
+		return  # ignore all upgrades that aren't sword related
 
-	var percent_reduction = current_upgrades["chanclas_rate"]["quantity"] * .50
-	$Timer.wait_time = base_wait_time * (1 - percent_reduction)
+	# using .25 multiplier so it can never reach 1.0
+	var percent_reduction = current_upgrades["chanclas_rate"]["quantity"] * .25
+
+	# limits the max time reduction to 90%. Due to 100% causing errors due to 
+	# calculating timer reduction can lead to scenarios where the timer is 
+	# less than 0
+	$Timer.wait_time = base_wait_time * (1 - min(percent_reduction, 0.9))
 	$Timer.start()
-
 	print($Timer.wait_time)
