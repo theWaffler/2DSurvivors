@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4us7avwf8cix"]
+[gd_scene load_steps=11 format=3 uid="uid://c4us7avwf8cix"]
 
 [ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_iwq7q"]
 [ext_resource type="PackedScene" uid="uid://cq2lxlke35g26" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="2_u8kpq"]
 [ext_resource type="PackedScene" uid="uid://cae0878i3h833" path="res://scenes/compnents/health_component.tscn" id="2_ykgjb"]
 [ext_resource type="Texture2D" uid="uid://dwktj5big5ano" path="res://scenes/game_object/player/superJuan.png" id="3_xv58h"]
+[ext_resource type="PackedScene" uid="uid://cdcx5ar2byao1" path="res://scenes/ability/guitar_ability_controller/guitar_ability_controller.tscn" id="4_m75yy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fohkc"]
 bg_color = Color(0.247059, 0.14902, 0.192157, 1)
@@ -35,6 +36,8 @@ script = ExtResource("1_iwq7q")
 [node name="AbilityManager" type="Node" parent="."]
 
 [node name="SwordAbilityController" parent="AbilityManager" instance=ExtResource("2_u8kpq")]
+
+[node name="GuitarAbilityController" parent="AbilityManager" instance=ExtResource("4_m75yy")]
 
 [node name="DamageIntervalTimer" type="Timer" parent="."]
 wait_time = 0.5

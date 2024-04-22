@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdcx5ar2byao1"]
+
+[ext_resource type="Script" path="res://scenes/ability/guitar_ability_controller/guitar_ability_controller.gd" id="1_j4h72"]
+[ext_resource type="PackedScene" uid="uid://bpns5gixvkrbu" path="res://scenes/ability/guitar_ability/guitar_ability.tscn" id="2_va514"]
+
+[node name="GuitarAbilityController" type="Node"]
+script = ExtResource("1_j4h72")
+guitar_ability_scene = ExtResource("2_va514")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
