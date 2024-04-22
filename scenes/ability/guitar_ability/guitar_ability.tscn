@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://bpns5gixvkrbu"]
+
+[ext_resource type="Script" path="res://scenes/ability/guitar_ability/guitar_ability.gd" id="1_7qgx1"]
+[ext_resource type="Texture2D" uid="uid://cegewhhv7xvvi" path="res://scenes/ability/guitar_ability/32x32_guitar.png" id="1_hlr7k"]
+[ext_resource type="PackedScene" uid="uid://bx0bqq3igrwn1" path="res://scenes/compnents/hitbox_component.tscn" id="3_idhdq"]
+
+[sub_resource type="Animation" id="Animation_mfv11"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_oib7j"]
+resource_name = "default"
+length = 0.65
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.65),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.325, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(2, 2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1f5b3"]
+_data = {
+"RESET": SubResource("Animation_mfv11"),
+"default": SubResource("Animation_oib7j")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u4d71"]
+radius = 16.0
+
+[node name="GuitarAbility" type="Node2D"]
+script = ExtResource("1_7qgx1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1f5b3")
+}
+autoplay = "default"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_hlr7k")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_idhdq")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_u4d71")
