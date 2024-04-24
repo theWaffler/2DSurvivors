@@ -7,6 +7,8 @@ extends CharacterBody2D
 @onready var health_component = $HealthComponent
 @onready var health_bar = $HealthBar
 @onready var abilities = $Abilities
+@onready var animation_player = $AnimationPlayer
+@onready var player_direction = $Visuals
 
 #counts how many eneimes
 var number_colliding_bodies = 0
@@ -27,6 +29,16 @@ func _process(delta):
 
 	velocity = velocity.lerp(target_velocity, 1 - exp(-delta * ACCELERATION_SMOOTHING))
 	move_and_slide()
+
+	if movement_vector.x != 0 || movement_vector.y != 0:
+		animation_player.play("walk")
+	else:
+		animation_player.play("RESET")
+
+	if movement_vector.x > 0:
+		player_direction.scale = Vector2(-1,1)
+	elif movement_vector.x < 0:
+		player_direction.scale = Vector2(1,1)
 
 
 func get_movement_vector():
