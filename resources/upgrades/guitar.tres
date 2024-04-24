@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://bxmx3wvxk5yda"]
+
+[ext_resource type="PackedScene" uid="uid://cdcx5ar2byao1" path="res://scenes/ability/guitar_ability_controller/guitar_ability_controller.tscn" id="1_r3uuv"]
+[ext_resource type="Script" path="res://resources/upgrades/ability.gd" id="2_nffy1"]
+
+[resource]
+script = ExtResource("2_nffy1")
+ability_controller_scene = ExtResource("1_r3uuv")
+id = "mariachi_guitar"
+name = "Mariachi guitar"
+description = "El Guitarrón de Sangre"
