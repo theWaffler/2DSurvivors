@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://brbjtu6depstm"]
+[gd_scene load_steps=4 format=3 uid="uid://brbjtu6depstm"]
 
 [ext_resource type="Script" path="res://scenes/manager/enemy_manager.gd" id="1_t1wj2"]
 [ext_resource type="PackedScene" uid="uid://kf1ncck7erwb" path="res://scenes/game_object/basic_enemy/basic_enemy.tscn" id="2_6yljj"]
+[ext_resource type="PackedScene" uid="uid://dqw8et5xcvnhw" path="res://scenes/game_object/piggy_enemy/piggy_enemy.tscn" id="3_fgm4r"]
 
 [node name="EnemyManager" type="Node"]
 script = ExtResource("1_t1wj2")
 SPAW_RADIUS = 375
 basic_enemy_scene = ExtResource("2_6yljj")
+piggy_enemy_scene = ExtResource("3_fgm4r")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
