@@ -3,12 +3,17 @@ extends Node
 @export var SPAW_RADIUS = 330
 
 @export var basic_enemy_scene: PackedScene
+@export var piggy_enemy_scene:PackedScene
 @export var arena_time_manager: Node
 @onready var timer = $Timer
 
 var base_spawn_time = 0
+var enemy_table = WeightedTable.new()
 
 func _ready():
+
+	enemy_table.add_item(basic_enemy_scene, 10)
+
 	base_spawn_time = timer.wait_time
 	timer.timeout.connect(on_timer_timeout)
 	arena_time_manager.arena_difficulty_increased.connect(on_arena_difficulty_increase)
@@ -43,10 +48,10 @@ func on_timer_timeout():
 	var player = get_tree().get_first_node_in_group("player") as Node2D
 	if player == null:
 		return
+
 	
-
-
-	var enemy = basic_enemy_scene.instantiate() as Node2D
+	var enemy_scene = enemy_table.pick_item()
+	var enemy = enemy_scene.instantiate() as Node2D
 
 	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
 
@@ -62,5 +67,9 @@ func on_arena_difficulty_increase(arena_difficulty: int):
 	time_off = min(time_off, 0.7)
 	#debug
 	print("Time off: " + str(time_off))
-
 	timer.wait_time = base_spawn_time - time_off
+
+	if arena_difficulty == 2: # 30 seconds (1 = 5sec)
+		enemy_table.add_item(piggy_enemy_scene, 20)
+	#elif arena_difficulty == 12: # one minute
+	#	pass # add another enemy type
