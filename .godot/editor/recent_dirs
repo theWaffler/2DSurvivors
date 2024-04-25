@@ -1,10 +1,10 @@
+res://scenes/compnents
 res://scenes/ability/guitar_ability
 res://scenes/ability/guitar_ability_controller
 res://scenes/ui
 C:/Users/Jay/Documents/Godot/2DSurvivors/scenes/game_object/player
 res://scenes/manager
 res://resources/upgrades
-res://scenes/compnents
 res://scenes/game_object/experience_vial
 res://scenes/auto_load
 res://debug/fps_display
