@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://ppmfy36svxyw"]
 
 [ext_resource type="Script" path="res://scenes/game_object/experience_vial/experience_taco.gd" id="1_2f5d5"]
-[ext_resource type="Texture2D" uid="uid://cd0jqf5rhhbfc" path="res://scenes/game_object/experience_vial/exp_taco.png" id="1_2tunk"]
+[ext_resource type="Texture2D" uid="uid://cdltultly3uik" path="res://scenes/game_object/experience_vial/exp_taco.png" id="1_2tunk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ou1j1"]
-radius = 14.0
+radius = 18.0
 
 [node name="ExperienceTaco" type="Node2D"]
 script = ExtResource("1_2f5d5")
