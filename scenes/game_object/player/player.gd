@@ -17,7 +17,7 @@ func _ready():
 	$CollisionArea2D.body_entered.connect(on_body_entered)
 	$CollisionArea2D.body_exited.connect(on_body_exited)
 	damage_interval_timer.timeout.connect(on_damage_interval_timer_timeout)
-	health_component.health_change.connect(on_health_change)
+	health_component.health_changed.connect(on_health_changed)
 
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 	update_health_display()
@@ -70,7 +70,7 @@ func on_body_exited(other_body: Node2D):
 func on_damage_interval_timer_timeout():
 	check_deal_damage()
 
-func on_health_change():
+func on_health_changed():
 	update_health_display()
 
 

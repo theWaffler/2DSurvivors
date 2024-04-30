@@ -1,8 +1,9 @@
-CanvasLayer
-Sprite2D
 Node
-AnimationPlayer
+Sprite2D
 Node2D
+Label
+CanvasLayer
+AnimationPlayer
 CollisionShape2D
 CharacterBody2D
 GPUParticles2D
@@ -10,5 +11,4 @@ Timer
 NinePatchRect
 MarginContainer
 Button
-Label
 VBoxContainer

@@ -1,10 +1,11 @@
+res://scenes/compnents
+res://scenes/ui
+res://resources/theme
 res://assets/environment
 res://scripts
-res://scenes/compnents
 res://scenes/game_object/piggy_enemy
 res://scenes/ability/guitar_ability
 res://scenes/ability/guitar_ability_controller
-res://scenes/ui
 C:/Users/Jay/Documents/Godot/2DSurvivors/scenes/game_object/player
 res://scenes/manager
 res://resources/upgrades
