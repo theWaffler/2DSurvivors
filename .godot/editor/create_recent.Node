@@ -1,8 +1,8 @@
+Node
+Sprite2D
 Node2D
 Label
-Node
 CanvasLayer
-Sprite2D
 AnimationPlayer
 CollisionShape2D
 CharacterBody2D

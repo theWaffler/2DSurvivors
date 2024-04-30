@@ -1,8 +1,8 @@
+res://scenes/compnents
 res://scenes/ui
 res://resources/theme
 res://assets/environment
 res://scripts
-res://scenes/compnents
 res://scenes/game_object/piggy_enemy
 res://scenes/ability/guitar_ability
 res://scenes/ability/guitar_ability_controller
