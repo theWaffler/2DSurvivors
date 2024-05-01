@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://3uqitu8ujgg4"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_ma30i"]
+
+[resource]
+script = ExtResource("1_ma30i")
+id = "chanclas_rate"
+max_quantity = 5
+name = "Chanclas Swiftness"
+description = " “ahora si vas a ver cabron” "

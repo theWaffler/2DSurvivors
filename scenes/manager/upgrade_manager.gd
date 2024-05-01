@@ -1,14 +1,22 @@
 extends Node
 
-@export var upgrade_pool: Array[AbilityUpgrade]
+#@export var upgrade_pool: Array[AbilityUpgrade]
 @export var experience_manager: Node
 @export var upgrade_screen_scene: PackedScene
 
-var current_upgrades = {
+var current_upgrades = {}
+var upgrade_pool: WeightedTable = WeightedTable.new()
 
-}
+var upgrade_chanclas_rate = preload("res://resources/upgrades/chanclas_rate.tres")
+var upgrade_chanclas_damge = preload("res://resources/upgrades/chanclas_damage.tres")
+var upgrade_guitar = preload("res://resources/upgrades/guitar.tres")
+var upgrade_guitar_damage = preload("res://resources/upgrades/guitar_damage.tres")
 
 func _ready():
+	upgrade_pool.add_item(upgrade_guitar, 10)
+	upgrade_pool.add_item(upgrade_chanclas_rate, 10)
+	upgrade_pool.add_item(upgrade_guitar, 10)
+
 	experience_manager.level_up.connect(on_level_up)
 
 
@@ -25,29 +33,35 @@ func apply_upgrade(upgrade: AbilityUpgrade):
 
 	if upgrade.max_quantity > 0:
 		var current_quantity = current_upgrades[upgrade.id]["quantity"]
-
 		if current_quantity == upgrade.max_quantity:
-			upgrade_pool = upgrade_pool.filter(func(pool_upgrade): return pool_upgrade.id != upgrade.id)
-	
+			upgrade_pool.remove_item(upgrade)
+
+	update_upgrade_pool(upgrade)
 	GameEvents.emit_ability_upgrade_added(upgrade, current_upgrades)
-		
+
 	# debugging purpose
 	#print(current_upgrades)
+
+
+# checks to see if you have the ability and if player has selected ability
+# update the upgrade pool. Greater weight == more likely to be chosen
+func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
+	if chosen_upgrade.id == upgrade_guitar.id:
+		upgrade_pool.add_item(upgrade_guitar_damage, 10)
 
 
 func pick_upgrade():
 
 	var chosen_upgrades: Array[AbilityUpgrade]= []
-	var filtered_upgrades = upgrade_pool.duplicate() # pass by value. copy
+	#var filtered_upgrades = upgrade_pool.duplicate() # pass by value. copy
 
 	for i in 2:
-		if filtered_upgrades.size() == 0:
+		if upgrade_pool.items.size() == 0:
 			break
-		var chosen_upgrade = filtered_upgrades.pick_random() as AbilityUpgrade
+		var chosen_upgrade = upgrade_pool.pick_item(chosen_upgrades)
 		if chosen_upgrade == null:
 			break
 		chosen_upgrades.append(chosen_upgrade)
-		filtered_upgrades = filtered_upgrades.filter(func (upgrade): return upgrade.id != chosen_upgrade.id)
 
 	return chosen_upgrades
 
