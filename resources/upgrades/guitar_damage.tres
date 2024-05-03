@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_ma30i")
-id = "chanclas_rate"
+id = "guitar_damage"
 max_quantity = 5
-name = "Chanclas Swiftness"
-description = " “ahora si vas a ver cabron” "
+name = "Guitar damage"
+description = "+10% damage"

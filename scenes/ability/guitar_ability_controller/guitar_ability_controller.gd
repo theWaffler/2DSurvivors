@@ -2,10 +2,13 @@ extends Node
 
 @export var guitar_ability_scene: PackedScene
 
-var damage = 10
+var base_damage = 10
+var additional_damage_percent = 1
+
 
 func _ready():
 	$Timer.timeout.connect(on_timer_timeout)
+	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
 
 func on_timer_timeout():
@@ -21,5 +24,9 @@ func on_timer_timeout():
 	var guitar_instance = guitar_ability_scene.instantiate() as Node2D
 	foreground.add_child(guitar_instance)
 	guitar_instance.global_position = player.global_position
-	guitar_instance.hitbox_component.damage = damage
+	guitar_instance.hitbox_component.damage = base_damage * additional_damage_percent
+
+func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
+	if upgrade.id == "guitar_damage":
+		additional_damage_percent = 1 + (current_upgrades["guitar_damage"]["quantity"] * 0.10)
 

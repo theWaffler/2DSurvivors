@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_cxjax")
-id = "chanclas_rate"
+id = "chanclas_damage"
 max_quantity = 5
-name = "Chanclas Swiftness"
-description = " “ahora si vas a ver cabron” "
+name = "Chanclas Damage"
+description = "+10% damage"
