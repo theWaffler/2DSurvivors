@@ -3,7 +3,8 @@ extends Node
 const MAX_RANGE = 150
 
 @export var sword_ability: PackedScene
-var damage = 5
+var base_damage = 5
+var additional_damage_percent = 1
 var base_wait_time
 
 # Called when the node enters the scene tree for the first time.
@@ -35,7 +36,7 @@ func on_timer_timeout():
 
 	var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
 	foreground_layer.add_child(sword_instance)
-	sword_instance.hitbox_component.damage = damage
+	sword_instance.hitbox_component.damage = base_damage * additional_damage_percent
 	
 	sword_instance.global_position = enemies[0].global_position
 	sword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0, TAU)) * 4 # TAU = 2*pi
@@ -54,15 +55,16 @@ func on_timer_timeout():
 #	print($Timer.wait_time)
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
-	if upgrade.id != "chanclas_rate":
-		return  # ignore all upgrades that aren't sword related
+	if upgrade.id == "chanclas_rate":
+		# using .25 multiplier so it can never reach 1.0
+		var percent_reduction = current_upgrades["chanclas_rate"]["quantity"] * .25
+		# limits the max time reduction to 90%. Due to 100% causing errors due to 
+		# calculating timer reduction can lead to scenarios where the timer is 
+		# less than 0
+		$Timer.wait_time = base_wait_time * (1 - min(percent_reduction, 0.9))
+		$Timer.start()
+		print($Timer.wait_time)
 
-	# using .25 multiplier so it can never reach 1.0
-	var percent_reduction = current_upgrades["chanclas_rate"]["quantity"] * .25
-
-	# limits the max time reduction to 90%. Due to 100% causing errors due to 
-	# calculating timer reduction can lead to scenarios where the timer is 
-	# less than 0
-	$Timer.wait_time = base_wait_time * (1 - min(percent_reduction, 0.9))
-	$Timer.start()
-	print($Timer.wait_time)
+	#if prior if statement is false, move here
+	elif upgrade.id == "chanclas_damage":
+		additional_damage_percent = 1 + (current_upgrades["sword_damage"]["quantity"] * 0.15)  
